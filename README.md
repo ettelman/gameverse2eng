@@ -8,6 +8,8 @@ Feel free to use for whatever reason
 
 > Do not deploy this server to a production or public environment.
 
+![GameVerse logo](pic.png)
+
 ---
 
 ## Features
