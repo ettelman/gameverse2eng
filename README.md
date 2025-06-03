@@ -1,7 +1,10 @@
-# GameVerse 2
+# GameVerse V2
 
 GameVerse2 is a deliberately vulnerable web application built with Node.js and SQLite.  
 It’s designed for pentesting labs, security education, and CTF-style training.
+
+Frontend more or less vibe-coded, enjoy the looks :)
+Feel free to use for whatever reason
 
 > Do not deploy this server to a production or public environment.
 
@@ -22,8 +25,8 @@ It’s designed for pentesting labs, security education, and CTF-style training.
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-org/gameverse2.git
-cd gameverse2
+git clone https://github.com/ettelman/gameverse2eng.git
+cd gameverse2eng
 ```
 
 ---
@@ -48,9 +51,11 @@ The server will run on [http://localhost:3333](http://localhost:3333)
 
 ---
 
-### 3. Start with Docker
+![alt text](captura-2025-06-03-1748961130.png)
 
-> Recommended for clean lab environments and to easily persist the database.
+### 2.1 Start with Docker
+
+> Recommended for clean lab environments
 
 #### Build the image:
 
