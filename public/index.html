@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GameVerse - Your Portal to Fantastic Games</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+        <a class="navbar-brand animate__animated animate__fadeInDown" href="#">GameVerse V2</a>
+        
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse animate__animated animate__fadeInDown"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#games">Games</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#community">Community</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/forum.html">Forum</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">|</a>
+            </li>
+          </ul>
+          <div id="user-status">Loading...</div>
+        </div>
+      </div>
+    </nav>
+    <header class="hero">
+      <div class="hero-content animate__animated animate__fadeIn">
+        <h1>Welcome to GameVerse</h1>
+        <p>Imaginative Adventures & Colorful Experiences</p>
+        <a
+          href="#games"
+          class="btn btn-primary btn-lg animate__animated animate__pulse"
+          >Explore the Games</a
+        >
+      </div>
+    </header>
+    <div class="hero-wave"></div>
+    <section id="games">
+      <div class="decorative-circle circle-1"></div>
+      <div class="decorative-circle circle-2"></div>
+      <div class="decorative-circle circle-3"></div>
+      <h2 class="section-title animate__animated animate__fadeInUp">
+        Our Games
+      </h2>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="card game-card animate__animated animate__zoomIn">
+              <img
+              src="/images?path=game1.jpg" 
+                alt="Candy Kingdom Quest"
+                class="card-img-top"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Space adventures</h5>
+                <p class="card-text">
+                  Explore colorful galaxies, collect star crystals, and avoid black holes in this intergalactic adventure filled with friendly aliens, mysterious planets, and epic space battles.<br />
+                </p>
+                <a href="#" class="btn btn-outline-dark">Read more</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <div
+              class="card game-card animate__animated animate__zoomIn"
+              style="animation-delay: 0.2s"
+            >
+              <img src="images?path=game2.jpg" alt="Cloud Jumper" class="card-img-top" />
+              <div class="card-body">
+                <h5 class="card-title">Dragon killer</h5>
+                <p class="card-text">
+                  Swing your sword and cast magical fireballs as you fight through lava caves and flying fortresses in this action-packed adventure where every dragon is a new threat.
+                </p>
+                <a href="#" class="btn btn-outline-dark">Read more</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div
+              class="card game-card animate__animated animate__zoomIn"
+              style="animation-delay: 0.4s"
+            >
+              <img
+                src="images?path=game3.jpg"
+                alt="Fairy Tale Adventures"
+                class="card-img-top"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Fairy Tale Adventures</h5>
+                <p class="card-text">
+                  Step into a fairy tale world where talking animals, enchanted forests, and sparkling castles await. Solve puzzles, help magical creatures, and shape your own story in this fantastic adventure.
+                </p>
+                <a href="#" class="btn btn-outline-dark">Read more</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="section-wave"></div>
+    <section id="about">
+      <div class="decorative-circle circle-4"></div>
+      <h2 class="section-title animate__animated animate__fadeInUp">
+        About GameVerse
+      </h2>
+      <div class="container">
+        <p class="lead text-center animate__animated animate__fadeIn">
+          GameVerse loves color, imagination, and adventure! We want to give players of all ages the opportunity to step into a world of dreams and magic.
+        </p>
+        <div class="row mt-5">
+          <div class="col-md-6 animate__animated animate__fadeInLeft">
+            <div class="info-box">
+              <h5>Our Vision</h5>
+              <p>
+                We strive to create immersive experiences that tickle the imagination and bring out the child in all of us. Every game is a chance to discover a new world of adventure.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 animate__animated animate__fadeInRight">
+            <div class="info-box">
+              <h5>Our Team</h5>
+              <p>
+                Behind GameVerse works a diverse group of artists, developers, and storytellers. Together we combine a passion for games with creativity and a desire to create magic.
+              </p>
+            </div>
+          </div>
+          <img src="team.jpg" class="team" alt="Our team" />
+        </div>
+      </div>
+    </section>
+    <div class="section-wave2"></div>
+    <section id="community">
+      <h2 class="section-title animate__animated animate__fadeInUp">
+        Join Our Community
+      </h2>
+      <div class="container">
+        <p class="lead text-center animate__animated animate__fadeIn">
+          Share your colorful moments, start your own game groups, and build lasting friendships in a world full of magic and adventure.
+        </p>
+        <div class="row mt-5">
+          <div class="col-md-6 animate__animated animate__fadeInLeft">
+            <div class="community-box">
+              <h5>Forum & Discussions</h5>
+              <p>
+                Join our friendly forums where you can share tips, strategies, and your most fantastic gaming moments with like-minded people.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 animate__animated animate__fadeInRight">
+            <div class="community-box">
+              <h5>Events & Tournaments</h5>
+              <p>
+                Challenge other players in exciting tournaments, win great prizes, and unlock unique rewards in our regular events.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <p class="mb-0">&copy; 2025 GameVerse. All rights reserved.</p>
+      <p class="mb-0">Follow us on social media for the latest news and more magical adventures!</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const jwtToken = localStorage.getItem("jwtToken");
+        if (!jwtToken) {
+          document.getElementById("user-status").innerHTML =
+            "<a class='nav-link' href='user.html'>Log in</a>";
+          return;
+        }
+        fetch("/me", {
+          headers: {
+            Authorization: "Bearer " + jwtToken,
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.loggedIn) {
+              document.getElementById("user-status").innerHTML =
+                "Logged in as <a href='admin.html'>" +
+                data.user.username +
+                "</a>";
+            } else {
+              document.getElementById("user-status").innerHTML =
+                "<a class='nav-link' href='user.html'>Log in</a>";
+            }
+          })
+          .catch((error) => {
+            console.error("Error fetching login status:", error);
+            document.getElementById("user-status").innerHTML =
+              "<a class='nav-link' href='user.html'>Log in</a>";
+          });
+      });
+    </script>
+  </body>
+</html>

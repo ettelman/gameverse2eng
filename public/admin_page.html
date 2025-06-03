@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Admin Panel - GameVerse</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .admin-container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 30px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="admin-container" id="admin-panel" style="display: none">
+      <h2>Admin Plugin Executor</h2>
+      <p>
+        Run a plugin script from the <code>plugins</code> directory
+      </p>
+      <p>
+        Installed plugins:
+        <ul>
+          <li>hello.js</li>
+          <li>status.js</li>
+        </ul>
+      </p>
+      <form id="plugin-form">
+        <div class="mb-3">
+          <label for="filename" class="form-label">Filename (e.g. <code>example.js</code>)</label>
+          <input type="text" id="filename" class="form-control" required />
+        </div>
+        <button type="submit" class="btn btn-danger">Run Plugin</button>
+      </form>
+      <div id="result" class="mt-4"></div>
+    </div>
+    <div style="text-align:center;">
+    <a href="index.html"><button class="btn btn-danger">Back</button></a>
+  </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const token = localStorage.getItem("jwtToken");
+
+        if (!token) {
+          window.location.href = "index.html";
+          return;
+        }
+
+        fetch("/me", {
+          headers: { Authorization: "Bearer " + token }
+        })
+          .then(res => res.json())
+          .then(data => {
+            if (!data.loggedIn || data.user.role !== "admin") {
+              window.location.href = "index.html";
+            } else {
+              document.getElementById("admin-panel").style.display = "block";
+            }
+          });
+
+        document.getElementById("plugin-form").addEventListener("submit", function (e) {
+          e.preventDefault();
+          const filename = document.getElementById("filename").value;
+
+          fetch("/admin/execute-plugin", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + token
+            },
+            body: JSON.stringify({ filename })
+          })
+            .then(res => res.json())
+            .then(data => {
+              document.getElementById("result").innerHTML = `
+                <div class="alert alert-info">
+                  <strong>Result:</strong><br />
+                  <pre>${JSON.stringify(data, null, 2)}</pre>
+                </div>
+              `;
+            })
+            .catch(err => {
+              document.getElementById("result").innerHTML = `
+                <div class="alert alert-danger">Error running: ${err}</div>
+              `;
+            });
+        });
+      });
+    </script>
+  </body>
+</html>

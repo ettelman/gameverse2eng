@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GameVerse Auth - Register & Log in</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+        <a class="navbar-brand animate__animated animate__fadeInDown" href="#"
+          >GameVerse V2</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse animate__animated animate__fadeInDown"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="forum.html">Forum</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <header class="hero-user">
+      <div class="hero-content animate__animated animate__fadeIn">
+    <div class="container my-5">
+      <div class="row justify-content-center bg-purple">
+        <div class="col-md-6">
+          <div class="form-container animate__animated animate__fadeInLeft">
+            <h2>Register</h2>
+            <div id="msg-register"></div>
+            <form id="register-form">
+              <div class="mb-3">
+                <label for="registerUsername" class="form-label">Username</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="registerUsername"
+                  placeholder="Enter your username"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="registerPassword" class="form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="registerPassword"
+                  placeholder="Enter your password"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Register</button>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-container animate__animated animate__fadeInRight">
+            <h2>Log in</h2>
+            <div id="msg-login"></div>
+            <form id="login-form">
+              <div class="mb-3">
+                <label for="loginUsername" class="form-label">Username</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="loginUsername"
+                  placeholder="Enter your username"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="loginPassword" class="form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="loginPassword"
+                  placeholder="Enter your password"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Log in</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>  </div>
+  </header>
+    <footer>
+      <div class="container">
+        <p class="mb-0">&copy; 2025 GameVerse. All rights reserved.</p>
+        <p class="mb-0">Follow us on social media for the latest news and more magical adventures!</p>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document
+        .getElementById("register-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const username = document.getElementById("registerUsername").value;
+          const password = document.getElementById("registerPassword").value;
+          fetch("/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, password }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              const msgEl = document.getElementById("msg-register");
+              registerForm = document.getElementById("register-form");
+              registerForm.reset();
+              if (data.error) {
+                msgEl.textContent = data.error;
+                msgEl.style.color = "red";
+              } else {
+                msgEl.textContent = data.message;
+                msgEl.style.color = "green";
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        });
+      document
+        .getElementById("login-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const username = document.getElementById("loginUsername").value;
+          const password = document.getElementById("loginPassword").value;
+          fetch("/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, password }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              const msgEl = document.getElementById("msg-login");
+              loginForm = document.getElementById("login-form");
+              loginForm.reset();
+              if (data.token) {
+                localStorage.setItem("jwtToken", data.token);
+                msgEl.textContent = "Login successful!";
+                msgEl.style.color = "green";
+                setTimeout(() => {
+                  window.location.href = "admin.html";
+                }, 1500);
+              } else {
+                msgEl.textContent = data.message || data.error;
+                msgEl.style.color = "red";
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const jwtToken = localStorage.getItem("jwtToken");
+        if (jwtToken) {
+          window.location.href = "admin.html";
+        }
+      });
+    </script>
+  </body>
+</html>

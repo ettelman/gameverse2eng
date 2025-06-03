@@ -1,0 +1,361 @@
+:root {
+  --color-hero-bg: #dcd5fa;
+  --color-forum-bg: #ffe7c7;
+  --color-games-bg: #ffe7c7;
+  --color-about-bg: #cdeaf5;
+  --color-community-bg: #cff0cf;
+  --color-text: #2c2c2c;
+  --color-accent: #ffc0cb;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  color: var(--color-text);
+  background: var(--color-hero-bg);
+  overflow-x: hidden;
+}
+
+.navbar {
+  background: transparent;
+  box-shadow: none;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: var(--color-text) !important;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+.nav-link {
+  color: var(--color-text) !important;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-accent) !important;
+}
+.navbar {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+
+.hero {
+  position: relative;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("hero.jpg") no-repeat center center;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.hero-forum {
+  position: relative;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("forum.jpg") no-repeat center center;
+  background-size: cover;
+  overflow: hidden;
+}
+.hero-user {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("loggain.jpg") no-repeat center center;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.hero-404 {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("404.jpg") no-repeat center center;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 15px;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #fff;
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.5),
+    4px 4px 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+.btn-primary {
+  background-color: var(--color-accent);
+  border: none;
+  color: var(--color-text);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: #ff99b8;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.hero-wave {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  margin-top: -5px;
+  background: var(--color-games-bg);
+  clip-path: ellipse(70% 100% at 50% 0%);
+}
+
+.forum-wave {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  background: var(--color-forum-bg);
+  clip-path: ellipse(70% 100% at 50% 0%);
+  margin-top: -5px;
+}
+
+.decorative-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.circle-1 {
+  width: 100px;
+  height: 100px;
+  top: 10%;
+  left: 5%;
+}
+
+.circle-2 {
+  width: 150px;
+  height: 150px;
+  bottom: 10%;
+  right: 5%;
+}
+
+.circle-3 {
+  width: 80px;
+  height: 80px;
+  top: 50%;
+  right: 15%;
+}
+
+.circle-4 {
+  width: 120px;
+  height: 120px;
+  bottom: 20%;
+  left: 10%;
+}
+
+.forum-section,
+#games,
+#about,
+#community {
+  position: relative;
+  padding: 60px 0;
+  background: var(--color-forum-bg);
+  text-align: center;
+}
+
+#about {
+  background: var(--color-about-bg);
+}
+
+#community {
+  background: var(--color-community-bg);
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.thread-card,
+.game-card,
+.info-box,
+.community-box {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 15px 0 20px 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  color: var(--color-text);
+  position: relative;
+  z-index: 2;
+}
+
+.thread-card:hover,
+.game-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.thread-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.thread-meta {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.new-thread-form {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.new-thread-form h2 {
+  font-size: 1.75rem;
+  margin-bottom: 20px;
+}
+
+.section-wave {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  background: var(--color-about-bg);
+  clip-path: polygon(0 100%, 100% 0, 100% 100%);
+  margin-bottom: -5px;
+}
+
+.section-wave2 {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  background: var(--color-community-bg);
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+  margin-top: -5px;
+  margin-bottom: -5px;
+}
+
+footer {
+  background: #ffffffcc;
+  text-align: center;
+  padding: 20px;
+  color: var(--color-text);
+  font-size: 0.95rem;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 2;
+}
+
+#msg {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: var(--color-text);
+}
+
+#user-status {
+  color: red;
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.team {
+  max-width: 800px;
+  border-radius: 5%;
+  margin: auto;
+}
+
+.container {
+  margin-top: 10px;
+}
+
+.welcome {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.btn-logout {
+  margin-bottom: 20px;
+}
+
+#admin-controls {
+  margin-top: 30px;
+}
+
+#about p,
+#community p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  position: relative;
+  z-index: 2;
+}
+
+.info-box h5 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+.form-container {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+.logo {
+  margin-bottom: 10px;
+  height: 80px;
+  border-radius: 30px;
+}
+.admin {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+.thread-right p {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
