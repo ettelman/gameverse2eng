@@ -53,8 +53,6 @@ The server will run on [http://localhost:3333](http://localhost:3333)
 
 ---
 
-![alt text](captura-2025-06-03-1748961130.png)
-
 ### 2.1 Start with Docker
 
 > Recommended for clean lab environments
